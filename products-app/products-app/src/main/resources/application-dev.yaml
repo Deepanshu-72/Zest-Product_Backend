@@ -1,0 +1,42 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/product_app
+    username: root
+    password: Bariya@2004
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    show-sql: true
+
+
+
+  logging:
+    level:
+      org.springframework.security:DEBUG
+
+
+
+
+
+
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:saiofalgfdgfdfmysupersecretkeymysupersecretkey123456mysupersecuresecretkeymysupersecuresecretkey1234567890abcd}
+    issuer: ${JWT_ISSUER:api.substrimg.com}
+    access-ttl-second: ${JWT_ACCESS_TTL_SECOND:3600}
+    refresh-ttl-second: ${JWT_REFRESH_TTL_SECOND:86400}
+    refresh-token-cookie-name: ${JWT_REFRESH_COOKIE_NAME:refreshToken}
+    cookie-secure: ${JWT_COOKIE_SECURE:true}
+    cookie-http-only: ${JWT_COOKIE_HTTP_ONLY:true}
+    cookie-same-site: ${JWT_COOKIE_SAME_SITE:lax}
+    cookie-domain: ${JWT_COOKIE_DOMAIN:localhost}
